@@ -3,6 +3,8 @@ import { getApi } from '../../service';
 export const FETCH_API = 'FETCH_API';
 export const ADD_EXPENSE = 'ADD_EXPENSE';
 export const REMOVE_EXPENSE = 'REMOVE_EXPENSE';
+export const START_EDIT = 'START_EDIT';
+export const FINISH_EDIT = 'FINISH_EDIT';
 
 export const addUser = (email) => ({
   type: 'USER',
@@ -19,9 +21,19 @@ export const add = (expense) => ({
   expenses: expense,
 });
 
-export const removeExpense = (id) => ({
+export const removeExpense = (payload) => ({
   type: REMOVE_EXPENSE,
-  payload: id,
+  payload,
+});
+
+export const editStart = (payload) => ({
+  type: START_EDIT,
+  payload,
+});
+
+export const editFinish = (payload) => ({
+  type: FINISH_EDIT,
+  payload,
 });
 
 export const addExpense = (state) => async (dispatch) => {
